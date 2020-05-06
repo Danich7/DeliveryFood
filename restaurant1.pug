@@ -1,0 +1,52 @@
+mixin product-restaurant (data)
+  img.card-img__restaurant.hvr-grow(src= data.img, alt="product")
+  .info__restaurant
+    h3.card-title__restaurant= data.title
+    p.cards__description= data.description
+    .shop
+      button.button.button-primary.button-primary__restaurant
+        span.button-text.button-text__restaurant В корзину
+        img.button-icon(src="img/Vector.svg", alt="shoping-cart")
+      span.cards__price= data.price
+
+mixin header-restaurant (data)
+  header.header__restaurant
+    h3.card-title.title__restaurant= data.title
+    .info.info-not-padding
+      img.star(src="img/star.svg", alt="star")
+      span.rating 4.5
+      span.price= data.price
+      img.ellipse(src="img/Ellipse 1.svg", alt="ellipse")
+      span.category= data.category
+
+
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Delivery Food - Пицца плюс
+    link(href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic", rel="stylesheet")
+    link(rel="stylesheet", href="css/normalize.css")
+    link(rel="stylesheet", href="css/style.css")
+  body
+    .container
+      include includes/header.pug
+    .content
+      .container
+        +header-restaurant({title:"Пицца плюс", price:"От 900 ₽", category:"Пицца и суши"})
+        .cards-1.cards__restaurant
+          .card__restaurant
+            +product-restaurant({img:"img/restaurant/product1.jpg", title:"Ролл угорь стандарт", description:"Рис, угорь, соус унаги, кунжут, водоросли нори.", price:"250 ₽"})
+          .card__restaurant
+            +product-restaurant({img:"img/restaurant/product2.jpg", title:"Калифорния лосось стандарт", description:"Рис, лосось, авокадо, огурец, майонез, икра масаго, водоросли нори.", price:"395 ₽"})
+          .card__restaurant
+            +product-restaurant({img:"img/restaurant/product3.jpg", title:"Окинава стандарт", description:"Рис, креветка отварная, сыр сливочный, лосось, огурец свежий...", price:"250 ₽"})
+        .cards-2.cards__restaurant
+          .card__restaurant
+            +product-restaurant({img:"img/restaurant/product4.jpg", title:"Цезарь маки хl", description:"Рис, куриная грудка копченая, икра масаго, томат, айсберг, соус цезарь...", price:"250 ₽"})
+          .card__restaurant
+            +product-restaurant({img:"img/restaurant/product5.jpg", title:"Ясай маки стандарт 185 г", description:"Рис, помидор свежий, перец болгарский, авокадо, огурец, айсберг", price:"250 ₽"})
+          .card__restaurant
+            +product-restaurant({img:"img/restaurant/product6.jpg", title:"Ролл с креветкой стандарт", description:"Рис, водоросли нори, креветки отварные, сыр сливочный, огурцы", price:"250 ₽"})
+    include includes/footer.pug

@@ -1,0 +1,49 @@
+mixin product (data)
+  a.card-link(href="restaurant.html", target="_blank")
+    img.card-img(src= data.img, alt="product1")
+  .title-in-card
+    h3.card-title= data.title
+    span.time-cooking= data.time
+  .info
+    img.star(src="img/star.svg", alt="star")
+    span.rating 4.5
+    span.price= data.price
+    img.ellipse(src="img/Ellipse 1.svg", alt="ellipse")
+    span.category= data.category
+
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Delivery Food - доставка еды на дом
+    link(href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic", rel="stylesheet")
+    link(rel="stylesheet", href="css/normalize.css")
+    link(rel="stylesheet", href="css/style.css")
+  body
+    .container
+      include includes/header.pug
+    .content
+      .container
+        section.promo
+          h1.promo-title Онлайн-сервис #[br] доставки еды на дом
+          p.promo-text Блюда из любимого ресторана привезет курьер в перчатках, маске и с антисептиком
+        .restaurants
+          h2.restaurants-title Рестораны
+          input.restaurants-input(type="text", placeholder="Поиск блюд и ресторанов") 
+        main.main
+          .cards-1
+            .card.hvr-float
+              +product({title:"Пицца плюс", img:"img/product1.jpg", time:"30-40 мин", price:"От 900 ₽", category:"Пицца и суши"})
+            .card.hvr-float
+              +product({title:"Тануки", img:"img/product2.jpg", time:"30 мин", price:"От 700 ₽", category:"Суши и вок"})
+            .card.hvr-float
+              +product({title:"FoodBand", img:"img/product3.jpg", time:"40 мин", price:"От 800 ₽", category:"Пицца и суши"})
+          .cards-2
+            .card.hvr-float
+              +product({title:"Жадина-пицца", img:"img/product4.jpg", time:"30 мин", price:"От 600 ₽", category:"Суши"})
+            .card.hvr-float
+              +product({title:"Точка еды", img:"img/product5.jpg", time:"30-40 мин", price:"От 900 ₽", category:"Пицца и суши"})
+            .card.hvr-float
+              +product({title:"PizzaBurger", img:"img/product6.jpg", time:"30 мин", price:"От 500 ₽", category:"Пицца"})
+    include includes/footer.pug
